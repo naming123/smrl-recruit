@@ -83,6 +83,7 @@ nav .links a:hover{color:var(--ink)}
 .arrow{position:relative;height:2px;background:var(--ink)}
 .arrow::after{content:"";position:absolute;right:-1px;top:-5px;border:6px solid transparent;border-left:9px solid var(--ink);border-right:0}
 .arrow em{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;font-style:normal;font-size:13px;font-weight:700;color:var(--main);white-space:nowrap}
+.pnote{margin-top:16px;text-align:center;font-size:14px;color:var(--mute)}
 .cgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(36px,6vw,88px);align-items:center;margin-top:clamp(48px,7vw,88px)}
 .waffle{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
 .waffle i{aspect-ratio:1;display:block;padding-top:100%}@supports(aspect-ratio:1){.waffle i{padding-top:0}}
@@ -234,7 +235,7 @@ body{font-size:15px}
 
 <section class="wrap" aria-label="주요 수치">
   <div class="facts">
-    <div><strong>교수 6명</strong><span>졸업생 중 대학 교수</span></div>
+    <div><strong>교수 6명</strong><span>박사 졸업생 5명, 연구교수 출신 1명</span></div>
     <div><strong>반도체 6명</strong><span>삼성전자 DS, SK하이닉스</span></div>
     <div><strong>ISLPED</strong><span>2024 최우수 논문상</span></div>
     <div><strong>2006~</strong><span>20년 차 연구실</span></div>
@@ -318,12 +319,13 @@ body{font-size:15px}
     <div class="path">
       <div class="node"><b>SMRL 박사</b><span>졸업 9명</span></div>
       <div class="arrow"><em>6명</em></div>
-      <div class="node"><b>삼성전자</b><span>현업 경험</span></div>
+      <div class="node"><b>삼성전자</b><span>박사 졸업 후 입사</span></div>
       <div class="arrow"><em>4명</em></div>
-      <div class="node hl"><b>대학 교수</b><span>숭실대 3, 경북대 1</span></div>
+      <div class="node hl"><b>대학 교수 4명</b><span>숭실대 3, 경북대 1</span></div>
     </div>
-    <figcaption>그림 3. 박사 졸업생의 대표 경로 (Alumni 페이지 경력 기준)</figcaption>
+    <figcaption>그림 3. 박사 졸업생 중 삼성전자를 거쳐 교수가 된 경로 (Alumni 페이지 경력 기준)</figcaption>
   </figure>
+  <p class="pnote">그 밖의 교수 임용: 김영근 박사(고려대, 삼성전자 경유 없음), Thuan Cong Do(하노이과기대, 연구교수 출신). 전체 교수 6명</p>
   <div class="cgrid">
     <figure>
       <div class="waffle" id="waffle" role="img" aria-label="졸업생 33명 소속 분야 분포"><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--mute)"></i><i style="background:var(--mute)"></i><i style="background:var(--mute)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i></div>
