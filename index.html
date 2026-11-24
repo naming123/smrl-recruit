@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<title>SMRL 고려대학교</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+/* VOICE: 짧은 명사형, 그림이 먼저, 글은 최소
+   IDEA: 칩 열 지도와 연구 개념도로 연구실을 보여 줌
+   PICTURE: 열 지도, 분야별 개념도, 진로 경로, 졸업생 분포, 연표
+   COLOUR and TYPE: 흰 바탕 + 크림슨(주) + 블루(보조), Noto Sans KR
+   LAYOUT: 선으로 구분, 모바일은 한 열 */
+:root{color-scheme:light;--bg:#ffffff;--soft:#f5f5f4;--ink:#18181b;--mute:#62626a;--line:#e2e2e4;--main:#9b1b30;--main2:#d9909b;--cool:#2f5d8a;--cool2:#9db7d1;--grey:#c9c9cd}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:dark;--bg:#121214;--soft:#1b1b1e;--ink:#ececee;--mute:#a3a3ab;--line:#2e2e33;--main:#e0566b;--main2:#8a3443;--cool:#7aa7d6;--cool2:#3b5a7a;--grey:#4a4a50}}
+:root[data-theme=dark]{color-scheme:dark;--bg:#121214;--soft:#1b1b1e;--ink:#ececee;--mute:#a3a3ab;--line:#2e2e33;--main:#e0566b;--main2:#8a3443;--cool:#7aa7d6;--cool2:#3b5a7a;--grey:#4a4a50}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:64px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans KR",system-ui,sans-serif;overflow-x:clip;word-break:keep-all}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2{text-wrap:balance;letter-spacing:-.025em}
+h2{font-size:clamp(26px,3.4vw,40px);font-weight:900;line-height:1.2}
+h3{font-size:18px;font-weight:700;line-height:1.35}
+figure{margin:0}
+figcaption{font-size:13px;color:var(--mute);margin-top:14px;text-align:center}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,20px)}
+.band{padding:clamp(56px,8vw,112px) 0}
+.soft{background:var(--soft)}
+.mute{color:var(--mute)}
+.sub{margin-top:14px;color:var(--mute);font-size:17px}
+.head{margin-bottom:clamp(32px,5vw,56px)}
+svg text{font-family:"Noto Sans KR",sans-serif}
+.m{fill:var(--main)}.m2{fill:var(--main2)}.c{fill:var(--cool)}.c2{fill:var(--cool2)}.g{fill:var(--grey)}.i{fill:var(--ink)}.mu{fill:var(--mute)}
+.ln{fill:none;stroke:var(--ink);stroke-width:1.5}.lm{fill:none;stroke:var(--main);stroke-width:2}.lc{fill:none;stroke:var(--cool);stroke-width:2}
+
+/* nav */
+nav{position:-webkit-sticky;position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:56px}
+nav b{font-weight:900;color:var(--main);font-size:18px;flex:none}
+nav .links{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;font-size:15px;margin-left:auto}
+nav .links::-webkit-scrollbar{display:none}
+nav .links a{text-decoration:none;color:var(--mute);flex:none;padding:14px 0}
+nav .links a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center;padding-block:clamp(40px,7vw,96px)}
+.tag{font-size:15px;color:var(--main);font-weight:700}
+.hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:900;line-height:1.08;margin-top:16px}
+.hero .en{margin-top:16px;color:var(--mute);font-size:15px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;font-weight:700;text-decoration:none;border:1.5px solid var(--main);color:var(--main);font-size:16px}
+.btn.fill{background:var(--main);color:#fff}
+.btn:focus-visible,.copy:focus-visible{outline:3px solid var(--cool);outline-offset:3px}
+.chip{max-width:480px;margin-left:auto}
+.legend{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mute);justify-content:center;margin-top:10px}
+.legend i{display:block;width:120px;height:8px;background:linear-gradient(90deg,var(--cool),var(--grey),var(--main))}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}
+.facts div{padding:24px 20px 4px 0}
+.facts div+div{padding-left:20px;border-left:1px solid var(--line)}
+.facts strong{display:block;font-size:clamp(28px,3.4vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1;white-space:nowrap}
+.facts div:nth-child(-n+2) strong{color:var(--main)}
+.facts span{display:block;margin-top:8px;font-size:14px;color:var(--mute)}
+
+/* research */
+.rgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(36px,5vw,64px) clamp(32px,5vw,72px)}
+.rcard{border-top:2px solid var(--main);padding-top:22px}
+.rcard.s{border-top-color:var(--cool)}
+.rcard p{color:var(--mute);margin-top:4px;font-size:15px}
+.rcard svg{display:block;width:100%;height:auto;margin-top:18px}
+.notes{font-size:13px;color:var(--mute);margin-top:40px;line-height:1.8}
+
+/* career */
+.path{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr) 64px minmax(0,1fr);align-items:center}
+.node{padding:22px 18px;border:1.5px solid var(--ink);text-align:center;background:var(--bg)}
+.node b{display:block;font-size:19px}
+.node span{font-size:14px;color:var(--mute)}
+.node.hl{border-color:var(--main);background:var(--main);color:#fff}
+.node.hl span{color:rgba(255,255,255,.85)}
+.arrow{position:relative;height:2px;background:var(--ink)}
+.arrow::after{content:"";position:absolute;right:-1px;top:-5px;border:6px solid transparent;border-left:9px solid var(--ink);border-right:0}
+.arrow em{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;font-style:normal;font-size:13px;font-weight:700;color:var(--main);white-space:nowrap}
+.cgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(36px,6vw,88px);align-items:center;margin-top:clamp(48px,7vw,88px)}
+.waffle{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:6px}
+.waffle i{aspect-ratio:1;display:block;padding-top:100%}@supports(aspect-ratio:1){.waffle i{padding-top:0}}
+.wl{list-style:none;margin:0;padding:0}
+.wl li{display:grid;grid-template-columns:14px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.wl li i{width:14px;height:14px;display:block}
+.wl li b{font-variant-numeric:tabular-nums}
+.wl li small{display:block;color:var(--mute);font-size:13px}
+
+/* timeline */
+.tline{position:relative;height:150px;margin-top:8px}
+.tline::before{content:"";position:absolute;left:0;right:0;top:74px;height:2px;background:var(--ink)}
+.ev{position:absolute;top:0;transform:translateX(-50%);text-align:center;width:92px}
+.ev .yr{position:absolute;top:96px;left:0;right:0;font-size:13px;color:var(--mute);font-variant-numeric:tabular-nums}
+.ev .dot{position:absolute;top:67px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--bg);border:3px solid var(--cool)}
+.ev.big .dot{background:var(--main);border-color:var(--main);width:20px;height:20px;margin-left:-10px;top:65px}
+.ev b{display:block;font-size:14px;line-height:1.3;position:absolute;top:116px;left:0;right:0}
+.ev.big b{color:var(--main)}
+.ev:nth-child(odd) b{top:6px;height:44px;display:flex;align-items:flex-end;justify-content:center}
+.ev:nth-child(odd) .yr{top:96px}
+.ev:nth-child(even) .yr{top:44px}
+.ev:nth-child(even) b{top:96px}
+.tline{height:160px}
+
+/* gantt */
+.gantt{margin-top:8px}
+.gaxis,.grow{display:grid;grid-template-columns:15em minmax(0,1fr);gap:20px;align-items:center}
+.gaxis div:last-child{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));font-size:12.5px;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:6px}
+.grow{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.gtrack{position:relative;height:16px}
+.gtrack i{position:absolute;top:0;bottom:0;background:var(--cool)}
+.gtrack i.m{background:var(--main)}
+.gnow{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--ink)}
+.lgrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(36px,6vw,88px);margin-top:clamp(48px,7vw,88px);align-items:start}
+.awards{list-style:none;margin:0;padding:0}
+.awards li{padding:14px 0;border-bottom:1px solid var(--line)}
+.awards li b{display:block;font-size:17px}
+.awards li span{font-size:14px;color:var(--mute)}
+.awards li:first-child b{color:var(--main);font-size:20px}
+
+/* prof */
+.prof{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,88px);align-items:center}
+.pname{font-size:clamp(34px,4vw,48px);font-weight:900;margin-top:8px}
+.pname small{font-size:16px;font-weight:500;color:var(--mute);margin-left:10px}
+.pfacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.pfacts div{padding:20px 16px 4px 0}
+.pfacts div+div{padding-left:16px;border-left:1px solid var(--line)}
+.pfacts b{display:block;font-size:20px;line-height:1.3}
+.pfacts span{display:block;margin-top:6px;font-size:13.5px;color:var(--mute)}
+
+/* venues */
+.vgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 clamp(32px,5vw,72px)}
+.vrow{display:grid;grid-template-columns:7.5em minmax(0,1fr) 2em;gap:14px;align-items:center;padding:9px 0;font-size:15px}
+.vrow .bar{height:12px}.vrow .bar i{display:block;height:100%;background:var(--main)}
+.vrow.j .bar i{background:var(--cool)}
+.vrow em{font-style:normal;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.vh{font-size:14px;color:var(--mute);padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:6px}
+
+/* people */
+.people{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,6vw,88px);align-items:center}
+.now{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;text-align:center}
+.now i{display:block;aspect-ratio:1;border-radius:50%;background:var(--main);margin:0 auto 8px;width:100%;max-width:64px}
+.now i.c{background:var(--cool)}.now i.g{background:var(--grey)}
+.now b{display:block;font-size:14px}.now span{font-size:12.5px;color:var(--mute)}
+.alum{display:flex;flex-wrap:wrap;gap:6px;margin-top:28px}
+.alum i{width:14px;height:14px;border-radius:50%;background:var(--grey);display:block}
+.plegend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--mute);margin-top:16px}
+.plegend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--k)}
+
+/* join */
+.join{background:var(--main);color:#fff}
+.join .sub{color:rgba(255,255,255,.82)}
+.jgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(36px,6vw,88px);margin-top:40px;align-items:start}
+.jitem{padding:20px 0;border-top:1px solid rgba(255,255,255,.35);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:baseline}
+.jitem h3{font-size:18px}
+.jitem span{font-size:14px;color:rgba(255,255,255,.82);white-space:nowrap}
+.jitem p{grid-column:1/-1;font-size:14.5px;color:rgba(255,255,255,.85)}
+.jitem a{font-weight:700}
+.form{display:flex;align-items:center;justify-content:center;width:100%;min-height:60px;background:#fff;color:var(--main);font-size:18px;font-weight:900;text-decoration:none}
+.form[aria-disabled=true]{opacity:.75;cursor:default}
+.contact dl{margin:24px 0 0;display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:12px 16px;font-size:15px}
+.contact dt{color:rgba(255,255,255,.7)}
+.contact dd{margin:0;overflow-wrap:anywhere}
+.copy{margin-top:20px;min-height:44px;padding:0 18px;background:transparent;color:#fff;border:1.5px solid #fff;font:700 15px "Noto Sans KR",sans-serif;cursor:pointer}
+footer{padding:32px 0;font-size:13px;color:var(--mute)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* tablet */
+@media(max-width:900px){
+.hero,.cgrid,.lgrid,.prof,.people,.jgrid{grid-template-columns:minmax(0,1fr)}
+.chip{margin:0 auto;max-width:400px}
+.facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.facts div:nth-child(3){padding-left:0;border-left:0}
+.facts div:nth-child(n+3){border-top:1px solid var(--line)}
+}
+/* phone */
+@media(max-width:640px){
+body{font-size:15px}
+.rgrid,.vgrid{grid-template-columns:minmax(0,1fr)}
+.vgrid{row-gap:28px}
+.path{grid-template-columns:minmax(0,1fr)}
+.arrow{width:2px;height:44px;margin:0 auto}
+.arrow::after{right:auto;left:-5px;top:auto;bottom:-1px;border:6px solid transparent;border-top:9px solid var(--ink);border-bottom:0}
+.arrow em{left:14px;bottom:auto;top:50%;transform:translateY(-50%)}
+.waffle{gap:4px}
+.tline{height:auto}
+.tline::before{left:7px;right:auto;top:0;bottom:0;width:2px;height:auto}
+.ev{position:relative;left:auto!important;transform:none;width:auto;text-align:left;padding:10px 0 10px 32px;display:flex;gap:12px;align-items:baseline}
+.ev .dot,.ev.big .dot{left:8px;top:15px}
+.ev .yr,.ev:nth-child(odd) .yr,.ev:nth-child(even) .yr{position:static;order:-1;width:3em;flex:none}
+.ev b,.ev:nth-child(odd) b,.ev:nth-child(even) b{position:static;font-size:15px;height:auto;display:block}
+.gaxis{display:none}
+.grow{grid-template-columns:minmax(0,1fr);gap:8px}
+.grow small{color:var(--mute)}
+.pfacts{grid-template-columns:minmax(0,1fr)}
+.pfacts div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+.now{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:20px}
+.cta .btn{flex:1 1 100%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hot{animation:none!important}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <b>SMRL</b>
+  <div class="links">
+    <a href="#research">연구</a><a href="#career">졸업 후 진로</a><a href="#life">학회와 과제</a><a href="#prof">지도교수</a><a href="#people">구성원</a><a href="#join">지원</a>
+  </div>
+</div></nav>
+
+<header class="wrap hero">
+  <div>
+    <p class="tag">고려대학교 정보대학 컴퓨터학과</p>
+    <h1>뜨거운 칩을<br>식히는 연구실</h1>
+    <p class="en">SMRL, SoC* &amp; Microprocessor Research Laboratory</p>
+    <div class="cta">
+      <a class="btn fill" href="#join">2027년 2학기 대학원 지원</a>
+      <a class="btn" href="#career">졸업 후 진로</a>
+    </div>
+  </div>
+  <figure>
+    <div class="chip"><svg id="die" viewBox="0 0 400 400" role="img" aria-label="칩 위 온도 분포 개념도"><rect x="20" y="20" width="358" height="358" class="ln" opacity=".45"></rect><rect x="30" y="30" width="32" height="32" fill="rgb(63,104,145)"></rect><rect x="64" y="30" width="32" height="32" fill="rgb(83,119,154)"></rect><rect x="98" y="30" width="32" height="32" fill="rgb(107,135,164)"></rect><rect x="132" y="30" width="32" height="32" fill="rgb(118,143,169)"></rect><rect x="166" y="30" width="32" height="32" fill="rgb(107,135,165)"></rect><rect x="200" y="30" width="32" height="32" fill="rgb(84,119,154)"></rect><rect x="234" y="30" width="32" height="32" fill="rgb(63,105,145)"></rect><rect x="268" y="30" width="32" height="32" fill="rgb(53,97,140)"></rect><rect x="302" y="30" width="32" height="32" fill="rgb(49,94,139)"></rect><rect x="336" y="30" width="32" height="32" fill="rgb(47,93,138)"></rect><rect x="30" y="64" width="32" height="32" fill="rgb(83,119,154)"></rect><rect x="64" y="64" width="32" height="32" fill="rgb(130,152,175)"></rect><rect x="98" y="64" width="32" height="32" fill="rgb(184,190,199)"></rect><rect x="132" y="64" width="32" height="32" fill="rgb(203,200,203)"></rect><rect x="166" y="64" width="32" height="32" fill="rgb(186,191,199)"></rect><rect x="200" y="64" width="32" height="32" fill="rgb(133,154,176)"></rect><rect x="234" y="64" width="32" height="32" fill="rgb(87,121,156)"></rect><rect x="268" y="64" width="32" height="32" fill="rgb(62,104,145)"></rect><rect x="302" y="64" width="32" height="32" fill="rgb(52,97,140)"></rect><rect x="336" y="64" width="32" height="32" fill="rgb(49,94,139)"></rect><rect x="30" y="98" width="32" height="32" fill="rgb(107,135,164)"></rect><rect x="64" y="98" width="32" height="32" fill="rgb(184,190,199)"></rect><rect x="98" y="98" width="32" height="32" fill="rgb(183,127,138)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.3s infinite" x="132" y="98" width="32" height="32" fill="rgb(170,79,95)"></rect><rect x="166" y="98" width="32" height="32" fill="rgb(181,121,132)"></rect><rect x="200" y="98" width="32" height="32" fill="rgb(196,199,204)"></rect><rect x="234" y="98" width="32" height="32" fill="rgb(124,147,172)"></rect><rect x="268" y="98" width="32" height="32" fill="rgb(82,118,154)"></rect><rect x="302" y="98" width="32" height="32" fill="rgb(63,104,145)"></rect><rect x="336" y="98" width="32" height="32" fill="rgb(54,98,141)"></rect><rect x="30" y="132" width="32" height="32" fill="rgb(118,143,169)"></rect><rect x="64" y="132" width="32" height="32" fill="rgb(204,200,203)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.3s infinite" x="98" y="132" width="32" height="32" fill="rgb(170,79,95)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.6s infinite" x="132" y="132" width="32" height="32" fill="rgb(155,27,48)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.8999999999999999s infinite" x="166" y="132" width="32" height="32" fill="rgb(164,59,77)"></rect><rect x="200" y="132" width="32" height="32" fill="rgb(191,157,164)"></rect><rect x="234" y="132" width="32" height="32" fill="rgb(172,181,193)"></rect><rect x="268" y="132" width="32" height="32" fill="rgb(123,147,172)"></rect><rect x="302" y="132" width="32" height="32" fill="rgb(91,124,157)"></rect><rect x="336" y="132" width="32" height="32" fill="rgb(68,108,147)"></rect><rect x="30" y="166" width="32" height="32" fill="rgb(107,135,164)"></rect><rect x="64" y="166" width="32" height="32" fill="rgb(185,191,199)"></rect><rect x="98" y="166" width="32" height="32" fill="rgb(182,123,134)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.8999999999999999s infinite" x="132" y="166" width="32" height="32" fill="rgb(165,63,80)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0s infinite" x="166" y="166" width="32" height="32" fill="rgb(169,76,92)"></rect><rect x="200" y="166" width="32" height="32" fill="rgb(183,128,139)"></rect><rect x="234" y="166" width="32" height="32" fill="rgb(197,176,181)"></rect><rect x="268" y="166" width="32" height="32" fill="rgb(190,194,201)"></rect><rect x="302" y="166" width="32" height="32" fill="rgb(140,159,179)"></rect><rect x="336" y="166" width="32" height="32" fill="rgb(93,126,159)"></rect><rect x="30" y="200" width="32" height="32" fill="rgb(83,119,154)"></rect><rect x="64" y="200" width="32" height="32" fill="rgb(132,153,176)"></rect><rect x="98" y="200" width="32" height="32" fill="rgb(192,196,202)"></rect><rect x="132" y="200" width="32" height="32" fill="rgb(195,169,176)"></rect><rect x="166" y="200" width="32" height="32" fill="rgb(188,143,152)"></rect><rect x="200" y="200" width="32" height="32" fill="rgb(182,123,135)"></rect><rect x="234" y="200" width="32" height="32" fill="rgb(179,111,123)"></rect><rect x="268" y="200" width="32" height="32" fill="rgb(186,139,149)"></rect><rect x="302" y="200" width="32" height="32" fill="rgb(197,199,204)"></rect><rect x="336" y="200" width="32" height="32" fill="rgb(123,147,172)"></rect><rect x="30" y="234" width="32" height="32" fill="rgb(63,104,145)"></rect><rect x="64" y="234" width="32" height="32" fill="rgb(85,120,155)"></rect><rect x="98" y="234" width="32" height="32" fill="rgb(115,141,168)"></rect><rect x="132" y="234" width="32" height="32" fill="rgb(150,166,184)"></rect><rect x="166" y="234" width="32" height="32" fill="rgb(196,199,204)"></rect><rect x="200" y="234" width="32" height="32" fill="rgb(189,146,155)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0s infinite" x="234" y="234" width="32" height="32" fill="rgb(173,92,107)"></rect><rect x="268" y="234" width="32" height="32" fill="rgb(177,104,117)"></rect><rect x="302" y="234" width="32" height="32" fill="rgb(200,186,191)"></rect><rect x="336" y="234" width="32" height="32" fill="rgb(136,156,178)"></rect><rect x="30" y="268" width="32" height="32" fill="rgb(52,97,140)"></rect><rect x="64" y="268" width="32" height="32" fill="rgb(60,102,144)"></rect><rect x="98" y="268" width="32" height="32" fill="rgb(73,111,149)"></rect><rect x="132" y="268" width="32" height="32" fill="rgb(97,128,160)"></rect><rect x="166" y="268" width="32" height="32" fill="rgb(141,160,180)"></rect><rect x="200" y="268" width="32" height="32" fill="rgb(205,205,208)"></rect><rect x="234" y="268" width="32" height="32" fill="rgb(188,146,155)"></rect><rect x="268" y="268" width="32" height="32" fill="rgb(190,150,159)"></rect><rect x="302" y="268" width="32" height="32" fill="rgb(194,197,203)"></rect><rect x="336" y="268" width="32" height="32" fill="rgb(123,147,171)"></rect><rect x="30" y="302" width="32" height="32" fill="rgb(48,94,139)"></rect><rect x="64" y="302" width="32" height="32" fill="rgb(50,95,139)"></rect><rect x="98" y="302" width="32" height="32" fill="rgb(56,99,142)"></rect><rect x="132" y="302" width="32" height="32" fill="rgb(69,108,148)"></rect><rect x="166" y="302" width="32" height="32" fill="rgb(97,128,160)"></rect><rect x="200" y="302" width="32" height="32" fill="rgb(139,158,179)"></rect><rect x="234" y="302" width="32" height="32" fill="rgb(173,182,194)"></rect><rect x="268" y="302" width="32" height="32" fill="rgb(172,181,193)"></rect><rect x="302" y="302" width="32" height="32" fill="rgb(136,156,178)"></rect><rect x="336" y="302" width="32" height="32" fill="rgb(93,125,158)"></rect><rect x="30" y="336" width="32" height="32" fill="rgb(47,93,138)"></rect><rect x="64" y="336" width="32" height="32" fill="rgb(48,94,138)"></rect><rect x="98" y="336" width="32" height="32" fill="rgb(50,95,139)"></rect><rect x="132" y="336" width="32" height="32" fill="rgb(55,99,142)"></rect><rect x="166" y="336" width="32" height="32" fill="rgb(68,108,147)"></rect><rect x="200" y="336" width="32" height="32" fill="rgb(86,121,155)"></rect><rect x="234" y="336" width="32" height="32" fill="rgb(101,131,162)"></rect><rect x="268" y="336" width="32" height="32" fill="rgb(101,131,162)"></rect><rect x="302" y="336" width="32" height="32" fill="rgb(86,120,155)"></rect><rect x="336" y="336" width="32" height="32" fill="rgb(67,107,147)"></rect></svg></div>
+    <div class="legend">낮음 <i></i> 높음</div>
+    <figcaption>그림 1. 멀티코어 칩 위 온도 분포 개념도 (설명용 예시)</figcaption>
+  </figure>
+</header>
+
+<section class="wrap" aria-label="주요 수치">
+  <div class="facts">
+    <div><strong>교수 6명</strong><span>졸업생 중 대학 교수</span></div>
+    <div><strong>반도체 6명</strong><span>삼성전자 DS, SK하이닉스</span></div>
+    <div><strong>ISLPED</strong><span>2024 최우수 논문상</span></div>
+    <div><strong>2006~</strong><span>20년 차 연구실</span></div>
+  </div>
+</section>
+
+<!-- 연구 -->
+<section class="band" id="research"><div class="wrap">
+  <div class="head"><h2>연구 분야</h2><p class="sub">열, 전력, 신뢰성. 하드웨어와 운영체제를 함께.</p></div>
+  <div class="rgrid">
+    <figure class="rcard">
+      <h3>열 모델링</h3><p>설계 초기의 칩 온도 예측</p>
+      <svg viewBox="0 0 320 190" role="img" aria-label="칩 단면과 열 흐름">
+        <g class="g"><rect x="70" y="20" width="10" height="40"></rect><rect x="95" y="20" width="10" height="40"></rect><rect x="120" y="20" width="10" height="40"></rect><rect x="145" y="20" width="10" height="40"></rect><rect x="170" y="20" width="10" height="40"></rect><rect x="195" y="20" width="10" height="40"></rect><rect x="220" y="20" width="10" height="40"></rect><rect x="245" y="20" width="10" height="40"></rect></g>
+        <rect x="60" y="60" width="205" height="16" class="g"></rect>
+        <rect x="95" y="82" width="135" height="26" fill="url(#heat)"></rect>
+        <rect x="45" y="114" width="235" height="18" class="ln"></rect>
+        <g class="g"><circle cx="70" cy="140" r="5"></circle><circle cx="100" cy="140" r="5"></circle><circle cx="130" cy="140" r="5"></circle><circle cx="160" cy="140" r="5"></circle><circle cx="190" cy="140" r="5"></circle><circle cx="220" cy="140" r="5"></circle><circle cx="250" cy="140" r="5"></circle></g>
+        <g class="lm"><path d="M162 80 V8"></path><path d="M156 16 l6-8 6 8"></path><path d="M120 80 V40" opacity=".5"></path><path d="M204 80 V40" opacity=".5"></path></g>
+        <g font-size="13" class="mu"><text x="272" y="44">방열판</text><text x="240" y="100">칩</text><text x="290" y="128">기판</text></g>
+        <text x="160" y="176" font-size="13" text-anchor="middle" class="i">냉각 방식별 온도 해석</text>
+        <defs><linearGradient id="heat"><stop offset="0" stop-color="#2f5d8a"></stop><stop offset=".5" stop-color="#9b1b30"></stop><stop offset="1" stop-color="#2f5d8a"></stop></linearGradient></defs>
+      </svg>
+    </figure>
+    <figure class="rcard">
+      <h3>시스템 수준 열 관리</h3><p>DVFS**, 태스크 이동으로 과열 방지</p>
+      <svg viewBox="0 0 320 190" role="img" aria-label="과열 코어에서 시원한 코어로 태스크 이동">
+        <rect x="40" y="20" width="70" height="60" class="m"></rect><rect x="118" y="20" width="70" height="60" class="g"></rect>
+        <rect x="40" y="88" width="70" height="60" class="g"></rect><rect x="118" y="88" width="70" height="60" class="c"></rect>
+        <text x="75" y="56" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">과열</text>
+        <text x="153" y="124" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">여유</text>
+        <path d="M95 64 C 130 70, 140 92, 140 100" class="ln" stroke-dasharray="4 4"></path><path d="M134 94 l6 8 6-8" class="ln"></path>
+        <g transform="translate(222 30)">
+          <rect x="0" y="0" width="16" height="110" class="g"></rect><rect x="0" y="62" width="16" height="48" class="m"></rect>
+          <rect x="36" y="0" width="16" height="110" class="g"></rect><rect x="36" y="38" width="16" height="72" class="c"></rect>
+          <text x="8" y="126" font-size="12" class="mu" text-anchor="middle">전압</text><text x="44" y="126" font-size="12" class="mu" text-anchor="middle">주파수</text>
+        </g>
+        <text x="114" y="176" font-size="13" text-anchor="middle" class="i">코어 간 태스크 이동</text>
+        <text x="248" y="176" font-size="13" text-anchor="middle" class="i">DVFS</text>
+      </svg>
+    </figure>
+    <figure class="rcard s">
+      <h3>시스템 수준 전력 관리</h3><p>운영체제 기반 전력 절감</p>
+      <svg viewBox="0 0 320 190" role="img" aria-label="관리 전후 전력 비교 그래프">
+        <path d="M40 20 V150 H300" class="ln"></path>
+        <path d="M40 70 C 90 50, 120 90, 170 60 S 250 50, 300 64 L300 112 C 250 100, 210 104, 170 106 S 90 96, 40 110 Z" class="c2" opacity=".55"></path>
+        <path d="M40 70 C 90 50, 120 90, 170 60 S 250 50, 300 64" class="ln" stroke="var(--mute)" stroke-dasharray="5 4"></path>
+        <path d="M40 110 C 90 96, 120 112, 170 106 S 250 100, 300 112" class="lc" stroke-width="3"></path>
+        <text x="228" y="90" font-size="14" font-weight="700" class="c">절감</text>
+        <text x="300" y="54" font-size="12" class="mu" text-anchor="end">관리 전</text>
+        <text x="300" y="130" font-size="12" class="c" text-anchor="end">관리 후</text>
+        <text x="30" y="85" font-size="12" class="mu" text-anchor="middle" transform="rotate(-90 30 85)">전력</text>
+        <text x="170" y="170" font-size="12" class="mu" text-anchor="middle">시간</text>
+      </svg>
+    </figure>
+    <figure class="rcard s">
+      <h3>신뢰성</h3><p>DDR5, HBM***용 가벼운 오류 정정</p>
+      <svg viewBox="0 0 320 190" role="img" aria-label="HBM 적층 메모리의 비트 오류와 ECC 정정">
+        <g id="stack"><rect x="40" y="30" width="130" height="22" class="c2"></rect><rect x="40" y="58" width="130" height="22" class="c2"></rect><rect x="40" y="86" width="130" height="22" class="c2"></rect><rect x="40" y="114" width="130" height="22" class="c2"></rect></g>
+        <rect x="30" y="142" width="150" height="10" class="g"></rect>
+        <rect x="118" y="90" width="14" height="14" class="m"></rect>
+        <text x="125" y="102" font-size="11" fill="#fff" text-anchor="middle" font-weight="700">1</text>
+        <path d="M142 97 H 212" class="ln" stroke-dasharray="4 4"></path><path d="M206 91 l8 6-8 6" class="ln"></path>
+        <path d="M250 50 l32 12 v26 c0 22 -14 36 -32 44 c-18 -8 -32 -22 -32 -44 v-26 z" class="m"></path>
+        <path d="M236 92 l10 10 20 -22" fill="none" stroke="#fff" stroke-width="4"></path>
+        <text x="105" y="176" font-size="13" text-anchor="middle" class="i">HBM 비트 오류</text>
+        <text x="250" y="176" font-size="13" text-anchor="middle" class="i">ECC 정정</text>
+      </svg>
+    </figure>
+  </div>
+  <figcaption style="margin-top:28px">그림 2. 연구 분야별 개념도</figcaption>
+  <p class="notes">* SoC(System on Chip): 여러 기능을 칩 하나에 담은 시스템 반도체<br>
+  ** DVFS(Dynamic Voltage and Frequency Scaling): 부하에 따라 전압과 주파수를 조절하는 기법<br>
+  *** HBM(High Bandwidth Memory): DRAM을 쌓아 대역폭을 높인 메모리. ECC(Error Correction Code)는 오류 정정 부호</p>
+</div></section>
+
+<!-- 진로 -->
+<section class="band soft" id="career"><div class="wrap">
+  <div class="head"><h2>졸업 후 진로</h2><p class="sub">기업 경험 후 교수로 가는 길이 뚜렷함.</p></div>
+  <figure>
+    <div class="path">
+      <div class="node"><b>SMRL 박사</b><span>졸업 9명</span></div>
+      <div class="arrow"><em>6명</em></div>
+      <div class="node"><b>삼성전자</b><span>현업 경험</span></div>
+      <div class="arrow"><em>4명</em></div>
+      <div class="node hl"><b>대학 교수</b><span>숭실대 3, 경북대 1</span></div>
+    </div>
+    <figcaption>그림 3. 박사 졸업생의 대표 경로 (Alumni 페이지 경력 기준)</figcaption>
+  </figure>
+  <div class="cgrid">
+    <figure>
+      <div class="waffle" id="waffle" role="img" aria-label="졸업생 33명 소속 분야 분포"><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--main2)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--cool2)"></i><i style="background:var(--mute)"></i><i style="background:var(--mute)"></i><i style="background:var(--mute)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i><i style="background:var(--grey)"></i></div>
+      <figcaption>그림 4. 졸업생 33명의 현재 소속 (한 칸 = 1명, 연구교수 1명 포함)</figcaption>
+    </figure>
+    <ul class="wl" id="wl"><li><i style="background:var(--main)"></i><span>대학 교수<small>숭실대 3, 경북대, 고려대, 하노이과기대</small></span><b>6명</b></li><li><i style="background:var(--main2)"></i><span>삼성전자 DS, SK하이닉스</span><b>6명</b></li><li><i style="background:var(--cool)"></i><span>글로벌 IT, 반도체<small>NVIDIA, Qualcomm, SiFive, 리벨리온 등</small></span><b>6명</b></li><li><i style="background:var(--cool2)"></i><span>LG전자</span><b>5명</b></li><li><i style="background:var(--mute)"></i><span>ETRI(한국전자통신연구원)</span><b>3명</b></li><li><i style="background:var(--grey)"></i><span>그 외</span><b>7명</b></li></ul>
+  </div>
+</div></section>
+
+<!-- 학회와 과제 -->
+<section class="band" id="life"><div class="wrap">
+  <div class="head"><h2>재학 중 경험</h2><p class="sub">국제 학회 발표, 기업과 정부 과제.</p></div>
+  <figure>
+    <div class="tline" id="tline"><div class="ev" style="left:4.22535211267547%"><span class="dot"></span><b>CES, ICCE</b><span class="yr">2013</span></div><div class="ev" style="left:25.35211267605602%"><span class="dot"></span><b>HPCA</b><span class="yr">2016</span></div><div class="ev" style="left:32.39436619718287%"><span class="dot"></span><b>CES</b><span class="yr">2017</span></div><div class="ev" style="left:39.43661971830972%"><span class="dot"></span><b>ISLPED</b><span class="yr">2018</span></div><div class="ev" style="left:60.56338028169027%"><span class="dot"></span><b>ICNGC</b><span class="yr">2021</span></div><div class="ev big" style="left:81.69014084507083%"><span class="dot"></span><b>ISLPED<br>최우수 논문상</b><span class="yr">2024</span></div><div class="ev" style="left:88.73239436619768%"><span class="dot"></span><b>ISLPED</b><span class="yr">2025</span></div><div class="ev" style="left:95.77464788732453%"><span class="dot"></span><b>ITherm</b><span class="yr">2026</span></div></div>
+    <figcaption>그림 5. 연구실이 다녀온 주요 국제 학회와 행사 (사진 기록 기준, 크림슨은 수상)</figcaption>
+  </figure>
+  <div class="lgrid">
+    <figure>
+      <div class="gantt">
+        <div class="gaxis"><div></div><div id="gyears"><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span><span>2027</span><span>2028</span><span>2029</span><span>2030</span></div></div>
+        <div id="grows"><div class="grow"><span>모바일 AP, 3D 칩 전력 최적화 <small class="mute">2025~2030</small></span><div class="gtrack"><i class="m" style="left:41.66666666666667%;width:55.55555555555556%"></i><span class="gnow" style="left:54.44444444444545%" title="현재"></span></div></div><div class="grow"><span>AI 반도체용 메모리 SoC <small class="mute">2025~2028</small></span><div class="gtrack"><i class="" style="left:36.11111111111111%;width:41.66666666666667%"></i><span class="gnow" style="left:54.44444444444545%" title="현재"></span></div></div><div class="grow"><span>RISC-V 시스템 소프트웨어 <small class="mute">2024~2027</small></span><div class="gtrack"><i class="" style="left:27.77777777777778%;width:38.88888888888889%"></i><span class="gnow" style="left:54.44444444444545%" title="현재"></span></div></div><div class="grow"><span>PIM 기반 메모리 아키텍처 <small class="mute">2022~2028</small></span><div class="gtrack"><i class="" style="left:2.7777777777777777%;width:75%"></i><span class="gnow" style="left:54.44444444444545%" title="현재"></span></div></div></div>
+      </div>
+      <figcaption>그림 6. 진행 중인 과제 기간 (크림슨: 기업 과제, 블루: IITP****)</figcaption>
+    </figure>
+    <ul class="awards">
+      <li><b>ISLPED 2024 최우수 논문상</b><span>Best Paper Award</span></li>
+      <li><b>IISWC 2024 최우수 논문상 후보</b><span>Best Paper Nominee</span></li>
+      <li><b>삼성전자 우수특허상 최우수상</b><span>2023, 전략산학 과제</span></li>
+      <li><b>삼성휴먼테크논문대상 장려상</b><span>2022, 박사과정 수상</span></li>
+    </ul>
+  </div>
+  <p class="notes">**** IITP: 정보통신기획평가원. PIM(Processing-in-Memory)은 메모리 안에서 연산하는 구조</p>
+</div></section>
+
+<!-- 교수 -->
+<section class="band soft" id="prof"><div class="wrap prof">
+  <div>
+    <p class="mute">지도교수</p>
+    <p class="pname">정성우<small>Sung Woo Chung</small></p>
+  </div>
+  <div class="pfacts">
+    <div><b>삼성전자 출신</b><span>System LSI 사업부 선임연구원, 2025~2026 자문 교수</span></div>
+    <div><b>IEEE TC 부편집장</b><span>2010~2015, Transactions on Computers</span></div>
+    <div><b>ISLPED 2027</b><span>국제 저전력 설계 학회 공동 대회장</span></div>
+  </div>
+</div></section>
+
+<!-- 논문 -->
+<section class="band" id="papers"><div class="wrap">
+  <div class="head"><h2>대표 논문 49편</h2><p class="sub">학회 20편, 저널 29편.</p></div>
+  <figure>
+    <div class="vgrid" id="venues"><div><p class="vh">학회</p><div class="vrow"><span>ISLPED</span><div class="bar"><i style="width:72.72727272727273%"></i></div><em>8</em></div><div class="vrow"><span>DATE</span><div class="bar"><i style="width:36.36363636363637%"></i></div><em>4</em></div><div class="vrow"><span>ICCD</span><div class="bar"><i style="width:27.27272727272727%"></i></div><em>3</em></div><div class="vrow"><span>DAC</span><div class="bar"><i style="width:18.181818181818183%"></i></div><em>2</em></div><div class="vrow"><span>IISWC</span><div class="bar"><i style="width:9.090909090909092%"></i></div><em>1</em></div><div class="vrow"><span>ICCAD</span><div class="bar"><i style="width:9.090909090909092%"></i></div><em>1</em></div></div><div><p class="vh">저널</p><div class="vrow j"><span>IEEE TC</span><div class="bar"><i style="width:100%"></i></div><em>11</em></div><div class="vrow j"><span>IEEE ESL</span><div class="bar"><i style="width:27.27272727272727%"></i></div><em>3</em></div><div class="vrow j"><span>IEEE TETC</span><div class="bar"><i style="width:18.181818181818183%"></i></div><em>2</em></div><div class="vrow j"><span>IEEE Computer</span><div class="bar"><i style="width:18.181818181818183%"></i></div><em>2</em></div><div class="vrow j"><span>IEEE Micro</span><div class="bar"><i style="width:9.090909090909092%"></i></div><em>1</em></div><div class="vrow j"><span>IEEE TCAD</span><div class="bar"><i style="width:9.090909090909092%"></i></div><em>1</em></div></div></div>
+    <figcaption>그림 7. 대표 논문 게재처별 편수 (크림슨: 학회, 블루: 저널)</figcaption>
+  </figure>
+</div></section>
+
+<!-- 구성원 -->
+<section class="band soft" id="people"><div class="wrap people">
+  <div>
+    <h2>지금 6명<br>졸업생 33명</h2>
+    <p class="sub">소수 정예, 교수 직접 지도.</p>
+  </div>
+  <figure>
+    <div class="now" id="now"><div><i class=""></i><b>김선영</b><span>박사과정</span></div><div><i class="c"></i><b>이재윤</b><span>석박사통합</span></div><div><i class="c"></i><b>심채영</b><span>석박사통합</span></div><div><i class="c"></i><b>정연우</b><span>석박사통합</span></div><div><i class="c"></i><b>오승민</b><span>석박사통합</span></div><div><i class="g"></i><b>김지찬</b><span>인턴</span></div></div>
+    <div class="plegend"><span style="--k:var(--main)">박사과정</span><span style="--k:var(--cool)">석박사통합과정</span><span style="--k:var(--grey)">인턴</span></div>
+    <div class="alum" id="alum" aria-label="졸업생 33명"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <figcaption>그림 8. 현재 구성원(위)과 졸업생(아래 점, 한 점 = 1명)</figcaption>
+  </figure>
+</div></section>
+
+<!-- 지원 -->
+<section class="band join" id="join"><div class="wrap">
+  <h2>함께할 사람을 찾습니다</h2>
+  <p class="sub">전자공학과 학부 출신도 환영.</p>
+  <div class="jgrid">
+    <div>
+      <div class="jitem"><h3>석사, 석박사통합과정</h3><span>2027년 2학기</span>
+        <p>컴퓨터학과. 정성우 교수에게 이메일로 연락.</p></div>
+      <div class="jitem"><h3>반도체시스템공학과</h3><span>2027년 2학기</span>
+        <p>SK하이닉스 계약학과, 석사와 석박사통합과정. 학과 지원 전 교수 면담 필수. <a href="https://nanosemi.korea.ac.kr/nanosemi/admission/EntranceInformation.do">모집요강</a></p></div>
+      <div class="jitem"><h3>학부연구생, 학석사연계과정</h3><span>상시 모집</span>
+        <p><a href="https://smrl.korea.ac.kr/notice/announcement_intern/">모집 공고</a></p></div>
+    </div>
+    <div class="contact">
+      <a class="form" id="form" href="#join" aria-disabled="true">지원서 구글폼 (링크 준비 중)</a>
+      <dl>
+        <dt>지원</dt><dd>swchung@korea.ac.kr (정성우 교수)</dd>
+        <dt>모집 문의</dt><dd>simcy1024@korea.ac.kr (심채영)</dd>
+        <dt>전화</dt><dd>02-3290-3571 (연구실)</dd>
+        <dt>위치</dt><dd>고려대학교 정운오 IT·교양교육관 517호</dd>
+      </dl>
+      <button class="copy" id="copy" type="button">지원 이메일 복사</button>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>SoC &amp; Microprocessor Research Laboratory, Korea University</span>
+  <a href="https://smrl.korea.ac.kr/">smrl.korea.ac.kr</a>
+</div></footer>
+
+<script>
+{const f=document.getElementById('form');if(f&&f.getAttribute('aria-disabled')==='true')f.addEventListener('click',e=>e.preventDefault());
+const c=document.getElementById('copy');if(c)c.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('swchung@korea.ac.kr');c.textContent='복사됨'}catch(_){c.textContent='swchung@korea.ac.kr'}setTimeout(()=>c.textContent='지원 이메일 복사',2200)});}
+</script>
+
+
+</body></html>
