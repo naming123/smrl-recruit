@@ -49,10 +49,6 @@ nav .links a:hover{color:var(--ink)}
 .tag{font-size:19.5px;color:var(--main);font-weight:700}
 .hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:900;line-height:1.08;margin-top:16px}
 .hero .en{margin-top:16px;color:var(--mute);font-size:19.5px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;font-weight:700;text-decoration:none;border:1.5px solid var(--main);color:var(--main);font-size:20.8px}
-.btn.fill{background:var(--main);color:#fff}
-.btn:focus-visible,.copy:focus-visible{outline:3px solid var(--cool);outline-offset:3px}
 .chip{max-width:480px;margin-left:auto}
 .legend{display:flex;align-items:center;gap:10px;font-size:16.9px;color:var(--mute);justify-content:center;margin-top:10px}
 .legend i{display:block;width:120px;height:8px;background:linear-gradient(90deg,var(--cool),var(--grey),var(--main))}
@@ -113,6 +109,7 @@ nav .links a:hover{color:var(--ink)}
 .gaxis,.grow{display:grid;grid-template-columns:15em minmax(0,1fr);gap:20px;align-items:center}
 .gaxis div:last-child{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));font-size:16.2px;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:6px}
 .grow{padding:12px 0;border-bottom:1px solid var(--line);font-size:19.5px}
+.grow>span small{display:block;font-size:16.9px}
 .gtrack{position:relative;height:16px}
 .gtrack i{position:absolute;top:0;bottom:0;background:var(--cool)}
 .gtrack i.m{background:var(--main)}
@@ -125,13 +122,13 @@ nav .links a:hover{color:var(--ink)}
 .awards li:first-child b{color:var(--main);font-size:20px}
 
 /* prof */
-.prof{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.45fr);gap:clamp(32px,6vw,88px);align-items:center}
+.prof{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,4vw,48px);align-items:center}
 .pname{font-size:clamp(34px,4vw,48px);font-weight:900;margin-top:8px}
 .pname small{font-size:20.8px;font-weight:500;color:var(--mute);margin-left:10px}
 .pcols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px)}
 .pcols h3{padding-bottom:10px;border-bottom:2px solid var(--ink)}
 .tl{list-style:none;margin:0;padding:0}
-.tl li{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:19.5px}
+.tl li{display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:19.5px}
 .tl li b{color:var(--mute);font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
 .tl li.hl span{font-weight:700}
 .tl li.hl b{color:var(--main);font-weight:700}
@@ -170,14 +167,14 @@ nav .links a:hover{color:var(--ink)}
 .jitem span{font-size:18.2px;color:rgba(255,255,255,.82);white-space:nowrap}
 .jitem p{grid-column:1/-1;font-size:18.9px;color:rgba(255,255,255,.85)}
 .jitem a{font-weight:700}
-.qr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.contact{border-top:1px solid rgba(255,255,255,.35);padding-top:20px}
+.qr{display:flex;flex-wrap:wrap;gap:32px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.35)}
 .qr div{display:flex;flex-direction:column;align-items:center;gap:10px}
 .qr img{width:104px;height:104px;padding:4px;background:#fff;image-rendering:pixelated}
 .qr span{font-size:18.2px;font-weight:700;color:rgba(255,255,255,.9)}
-.contact dl{margin:24px 0 0;display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:12px 16px;font-size:19.5px}
+.contact dl{margin:0;display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:12px 16px;font-size:19.5px}
 .contact dt{color:rgba(255,255,255,.7)}
 .contact dd{margin:0;overflow-wrap:anywhere}
-.copy{margin-top:20px;min-height:44px;padding:0 18px;background:transparent;color:#fff;border:1.5px solid #fff;font:700 19.5px "Noto Sans KR",sans-serif;cursor:pointer}
 footer{padding:32px 0;font-size:16.9px;color:var(--mute)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
@@ -194,19 +191,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 .wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,24px) clamp(16px,2vw,24px)}
 .wl1{font-size:22.1px;font-weight:700;color:rgba(255,255,255,.9)}
 .asof{font-size:16.2px;color:var(--mute);margin-top:8px}
-.wbig{background:var(--main);color:#fff;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;justify-content:flex-end;min-height:300px}
+.wbig{background:var(--main);color:#fff;padding:clamp(28px,4vw,48px);display:flex;flex-direction:column;justify-content:flex-start;min-height:300px}
 .wbig strong{margin-top:10px;font-size:clamp(64px,9vw,128px);font-weight:900;line-height:1;letter-spacing:-.04em}
 .wbig p{margin-top:18px;font-size:22.1px;color:rgba(255,255,255,.88);max-width:24em}
 .witem{padding:24px 0 8px;border-top:1px solid rgba(127,127,127,.45);margin-top:16px}
 .witem strong{display:block;font-size:clamp(24px,2.6vw,32px);font-weight:900;letter-spacing:-.02em}
 .witem p{margin-top:6px;font-size:19.5px;opacity:.75}
 .wl li.more{display:block;border:0;text-align:center;font-size:22px;line-height:1;color:var(--mute);padding:6px 0 0}
-.sticky{display:none}
 @media(max-width:900px){
 .wgrid{grid-template-columns:minmax(0,1fr)}
 .wbig{min-height:0}
-.sticky{display:flex;position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:9;min-height:54px;align-items:center;justify-content:center;background:var(--main);color:#fff;font-weight:900;font-size:22.1px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-footer{padding-bottom:96px}
 }
 @media(max-width:640px){
 .proof{grid-template-columns:minmax(0,1fr)}
@@ -265,7 +259,6 @@ body{font-size:19.5px}
 .tl li{grid-template-columns:5.5em minmax(0,1fr);gap:10px;font-size:18.9px}
 .pfacts div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
 .now{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:20px}
-.cta .btn{flex:1 1 100%}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hot{animation:none!important}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
@@ -291,9 +284,6 @@ body{font-size:19.5px}
       <li><b>ISLPED 2027</b><span>지도교수 공동 대회장</span></li>
     </ul>
     <p class="asof">2026년 8월 20일 기준</p>
-    <div class="cta">
-      <a class="btn" href="#why">연구실 성과</a>
-    </div>
   </div>
   <figure>
     <div class="chip"><svg id="die" viewBox="0 0 400 400" role="img" aria-label="칩 위 온도 분포 개념도"><rect x="20" y="20" width="358" height="358" class="ln" opacity=".45"></rect><rect x="30" y="30" width="32" height="32" fill="rgb(63,104,145)"></rect><rect x="64" y="30" width="32" height="32" fill="rgb(83,119,154)"></rect><rect x="98" y="30" width="32" height="32" fill="rgb(107,135,164)"></rect><rect x="132" y="30" width="32" height="32" fill="rgb(118,143,169)"></rect><rect x="166" y="30" width="32" height="32" fill="rgb(107,135,165)"></rect><rect x="200" y="30" width="32" height="32" fill="rgb(84,119,154)"></rect><rect x="234" y="30" width="32" height="32" fill="rgb(63,105,145)"></rect><rect x="268" y="30" width="32" height="32" fill="rgb(53,97,140)"></rect><rect x="302" y="30" width="32" height="32" fill="rgb(49,94,139)"></rect><rect x="336" y="30" width="32" height="32" fill="rgb(47,93,138)"></rect><rect x="30" y="64" width="32" height="32" fill="rgb(83,119,154)"></rect><rect x="64" y="64" width="32" height="32" fill="rgb(130,152,175)"></rect><rect x="98" y="64" width="32" height="32" fill="rgb(184,190,199)"></rect><rect x="132" y="64" width="32" height="32" fill="rgb(203,200,203)"></rect><rect x="166" y="64" width="32" height="32" fill="rgb(186,191,199)"></rect><rect x="200" y="64" width="32" height="32" fill="rgb(133,154,176)"></rect><rect x="234" y="64" width="32" height="32" fill="rgb(87,121,156)"></rect><rect x="268" y="64" width="32" height="32" fill="rgb(62,104,145)"></rect><rect x="302" y="64" width="32" height="32" fill="rgb(52,97,140)"></rect><rect x="336" y="64" width="32" height="32" fill="rgb(49,94,139)"></rect><rect x="30" y="98" width="32" height="32" fill="rgb(107,135,164)"></rect><rect x="64" y="98" width="32" height="32" fill="rgb(184,190,199)"></rect><rect x="98" y="98" width="32" height="32" fill="rgb(183,127,138)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.3s infinite" x="132" y="98" width="32" height="32" fill="rgb(170,79,95)"></rect><rect x="166" y="98" width="32" height="32" fill="rgb(181,121,132)"></rect><rect x="200" y="98" width="32" height="32" fill="rgb(196,199,204)"></rect><rect x="234" y="98" width="32" height="32" fill="rgb(124,147,172)"></rect><rect x="268" y="98" width="32" height="32" fill="rgb(82,118,154)"></rect><rect x="302" y="98" width="32" height="32" fill="rgb(63,104,145)"></rect><rect x="336" y="98" width="32" height="32" fill="rgb(54,98,141)"></rect><rect x="30" y="132" width="32" height="32" fill="rgb(118,143,169)"></rect><rect x="64" y="132" width="32" height="32" fill="rgb(204,200,203)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.3s infinite" x="98" y="132" width="32" height="32" fill="rgb(170,79,95)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.6s infinite" x="132" y="132" width="32" height="32" fill="rgb(155,27,48)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.8999999999999999s infinite" x="166" y="132" width="32" height="32" fill="rgb(164,59,77)"></rect><rect x="200" y="132" width="32" height="32" fill="rgb(191,157,164)"></rect><rect x="234" y="132" width="32" height="32" fill="rgb(172,181,193)"></rect><rect x="268" y="132" width="32" height="32" fill="rgb(123,147,172)"></rect><rect x="302" y="132" width="32" height="32" fill="rgb(91,124,157)"></rect><rect x="336" y="132" width="32" height="32" fill="rgb(68,108,147)"></rect><rect x="30" y="166" width="32" height="32" fill="rgb(107,135,164)"></rect><rect x="64" y="166" width="32" height="32" fill="rgb(185,191,199)"></rect><rect x="98" y="166" width="32" height="32" fill="rgb(182,123,134)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0.8999999999999999s infinite" x="132" y="166" width="32" height="32" fill="rgb(165,63,80)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0s infinite" x="166" y="166" width="32" height="32" fill="rgb(169,76,92)"></rect><rect x="200" y="166" width="32" height="32" fill="rgb(183,128,139)"></rect><rect x="234" y="166" width="32" height="32" fill="rgb(197,176,181)"></rect><rect x="268" y="166" width="32" height="32" fill="rgb(190,194,201)"></rect><rect x="302" y="166" width="32" height="32" fill="rgb(140,159,179)"></rect><rect x="336" y="166" width="32" height="32" fill="rgb(93,126,159)"></rect><rect x="30" y="200" width="32" height="32" fill="rgb(83,119,154)"></rect><rect x="64" y="200" width="32" height="32" fill="rgb(132,153,176)"></rect><rect x="98" y="200" width="32" height="32" fill="rgb(192,196,202)"></rect><rect x="132" y="200" width="32" height="32" fill="rgb(195,169,176)"></rect><rect x="166" y="200" width="32" height="32" fill="rgb(188,143,152)"></rect><rect x="200" y="200" width="32" height="32" fill="rgb(182,123,135)"></rect><rect x="234" y="200" width="32" height="32" fill="rgb(179,111,123)"></rect><rect x="268" y="200" width="32" height="32" fill="rgb(186,139,149)"></rect><rect x="302" y="200" width="32" height="32" fill="rgb(197,199,204)"></rect><rect x="336" y="200" width="32" height="32" fill="rgb(123,147,172)"></rect><rect x="30" y="234" width="32" height="32" fill="rgb(63,104,145)"></rect><rect x="64" y="234" width="32" height="32" fill="rgb(85,120,155)"></rect><rect x="98" y="234" width="32" height="32" fill="rgb(115,141,168)"></rect><rect x="132" y="234" width="32" height="32" fill="rgb(150,166,184)"></rect><rect x="166" y="234" width="32" height="32" fill="rgb(196,199,204)"></rect><rect x="200" y="234" width="32" height="32" fill="rgb(189,146,155)"></rect><rect class="hot" style="animation:pulse 2.6s ease-in-out 0s infinite" x="234" y="234" width="32" height="32" fill="rgb(173,92,107)"></rect><rect x="268" y="234" width="32" height="32" fill="rgb(177,104,117)"></rect><rect x="302" y="234" width="32" height="32" fill="rgb(200,186,191)"></rect><rect x="336" y="234" width="32" height="32" fill="rgb(136,156,178)"></rect><rect x="30" y="268" width="32" height="32" fill="rgb(52,97,140)"></rect><rect x="64" y="268" width="32" height="32" fill="rgb(60,102,144)"></rect><rect x="98" y="268" width="32" height="32" fill="rgb(73,111,149)"></rect><rect x="132" y="268" width="32" height="32" fill="rgb(97,128,160)"></rect><rect x="166" y="268" width="32" height="32" fill="rgb(141,160,180)"></rect><rect x="200" y="268" width="32" height="32" fill="rgb(205,205,208)"></rect><rect x="234" y="268" width="32" height="32" fill="rgb(188,146,155)"></rect><rect x="268" y="268" width="32" height="32" fill="rgb(190,150,159)"></rect><rect x="302" y="268" width="32" height="32" fill="rgb(194,197,203)"></rect><rect x="336" y="268" width="32" height="32" fill="rgb(123,147,171)"></rect><rect x="30" y="302" width="32" height="32" fill="rgb(48,94,139)"></rect><rect x="64" y="302" width="32" height="32" fill="rgb(50,95,139)"></rect><rect x="98" y="302" width="32" height="32" fill="rgb(56,99,142)"></rect><rect x="132" y="302" width="32" height="32" fill="rgb(69,108,148)"></rect><rect x="166" y="302" width="32" height="32" fill="rgb(97,128,160)"></rect><rect x="200" y="302" width="32" height="32" fill="rgb(139,158,179)"></rect><rect x="234" y="302" width="32" height="32" fill="rgb(173,182,194)"></rect><rect x="268" y="302" width="32" height="32" fill="rgb(172,181,193)"></rect><rect x="302" y="302" width="32" height="32" fill="rgb(136,156,178)"></rect><rect x="336" y="302" width="32" height="32" fill="rgb(93,125,158)"></rect><rect x="30" y="336" width="32" height="32" fill="rgb(47,93,138)"></rect><rect x="64" y="336" width="32" height="32" fill="rgb(48,94,138)"></rect><rect x="98" y="336" width="32" height="32" fill="rgb(50,95,139)"></rect><rect x="132" y="336" width="32" height="32" fill="rgb(55,99,142)"></rect><rect x="166" y="336" width="32" height="32" fill="rgb(68,108,147)"></rect><rect x="200" y="336" width="32" height="32" fill="rgb(86,121,155)"></rect><rect x="234" y="336" width="32" height="32" fill="rgb(101,131,162)"></rect><rect x="268" y="336" width="32" height="32" fill="rgb(101,131,162)"></rect><rect x="302" y="336" width="32" height="32" fill="rgb(86,120,155)"></rect><rect x="336" y="336" width="32" height="32" fill="rgb(67,107,147)"></rect></svg></div>
@@ -488,31 +478,26 @@ body{font-size:19.5px}
         <p><a href="https://smrl.korea.ac.kr/notice/announcement_intern/">모집 공고</a></p></div>
     </div>
     <div class="contact">
-      <div class="qr">
-        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArAQAAAADJJkxtAAABOElEQVR42gEtAdL+Af8AAAAA4QMBxTlSOkAAvrhS3C+gBOTht/l5+AIAZDUQAAACAMUnFUAAAhxOmt3HAAMh7dYv9IAA//s6nj/gALAoliFaIAMxPQ3lEx8CUeNa8XMAAbEK4Nm5MwTnDeQlM3kEAweTYHn5AiHjEDNgAADpK+o7ECACwxEyAI1AAzMUPBQQZAHiBttx/HACE4cyK1oAAOIxqeSlIADNxzwMO+AC0Qn+C6sAAPmZBmkJYADG/DszpSACCyL0Ew0AAOjBQ/YVIALZxaN9XwABqve/9eArAuNO+6GGAATzNiNr/kECFds34oUAAuvP0OIcAAD/qNb0u2ADARm4YcCcA37YaPTq1AGi5dHnwt8CAAQ2JPXAAgBT6EGdAAQcAZnszdgCwsc7IPBAAf8AAAAA4SqHdo4MPkC4AAAAAElFTkSuQmCC" alt="지원서 QR 코드" width="104" height="104"><span>지원서</span></div>
-        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfAQAAAAA31SuUAAAApklEQVR42gGbAGT/Af8AAP8DAcYcFAI+AdT4AuQLBJACAETcAAIA1vQABBwEQwwDIQneMAD/5af+ALAmAaIA8cBHJgHuJGwwAO+SD1oDOxUXEADPIQ4CAx9x+fgA8Xr1agK7EgT0Agm1KEgC3+4P9ALx5o30Ag3Yy3gA/6xLngMB+wQWAj4cqRQBot/vpgIAIc/kAgBZCCgAvuH2ygMh2jgdAf8AAP9WCDjlNqbbZQAAAABJRU5ErkJggg==" alt="모집 페이지 QR 코드" width="104" height="104"><span>모집 페이지</span></div>
-      </div>
       <dl>
         <dt>지원</dt><dd>swchung@korea.ac.kr (정성우 교수)</dd>
         <dt>모집 문의</dt><dd>simcy1024@korea.ac.kr (심채영)</dd>
         <dt>전화</dt><dd>02-3290-3571 (연구실)</dd>
         <dt>위치</dt><dd>고려대학교 정운오 IT·교양교육관 517호</dd>
       </dl>
-      <button class="copy" id="copy" type="button">지원 이메일 복사</button>
+      <div class="qr">
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAArAQAAAADJJkxtAAABOElEQVR42gEtAdL+Af8AAAAA4QMBxTlSOkAAvrhS3C+gBOTht/l5+AIAZDUQAAACAMUnFUAAAhxOmt3HAAMh7dYv9IAA//s6nj/gALAoliFaIAMxPQ3lEx8CUeNa8XMAAbEK4Nm5MwTnDeQlM3kEAweTYHn5AiHjEDNgAADpK+o7ECACwxEyAI1AAzMUPBQQZAHiBttx/HACE4cyK1oAAOIxqeSlIADNxzwMO+AC0Qn+C6sAAPmZBmkJYADG/DszpSACCyL0Ew0AAOjBQ/YVIALZxaN9XwABqve/9eArAuNO+6GGAATzNiNr/kECFds34oUAAuvP0OIcAAD/qNb0u2ADARm4YcCcA37YaPTq1AGi5dHnwt8CAAQ2JPXAAgBT6EGdAAQcAZnszdgCwsc7IPBAAf8AAAAA4SqHdo4MPkC4AAAAAElFTkSuQmCC" alt="지원서 QR 코드" width="104" height="104"><span>지원서</span></div>
+        <div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfAQAAAAA31SuUAAAApklEQVR42gGbAGT/Af8AAP8DAcYcFAI+AdT4AuQLBJACAETcAAIA1vQABBwEQwwDIQneMAD/5af+ALAmAaIA8cBHJgHuJGwwAO+SD1oDOxUXEADPIQ4CAx9x+fgA8Xr1agK7EgT0Agm1KEgC3+4P9ALx5o30Ag3Yy3gA/6xLngMB+wQWAj4cqRQBot/vpgIAIc/kAgBZCCgAvuH2ygMh2jgdAf8AAP9WCDjlNqbbZQAAAABJRU5ErkJggg==" alt="모집 페이지 QR 코드" width="104" height="104"><span>모집 페이지</span></div>
+      </div>
     </div>
   </div>
 </div></section>
 
-<a class="sticky" href="https://docs.google.com/forms/d/e/1FAIpQLSdd9UvTjRwr6qlKonMOjFgmnqroBtFOBPll68A138eV0jgBkA/viewform" target="_blank" rel="noopener">2027년 2학기 지원하기</a>
 
 <footer><div class="wrap">
   <span>SoC &amp; Microprocessor Research Laboratory, Korea University</span>
   <a href="https://smrl.korea.ac.kr/">smrl.korea.ac.kr</a>
 </div></footer>
 
-<script>
-{const c=document.getElementById('copy');if(c)c.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('swchung@korea.ac.kr');c.textContent='복사됨'}catch(_){c.textContent='swchung@korea.ac.kr'}setTimeout(()=>c.textContent='지원 이메일 복사',2200)});}
-</script>
 
 
 </body></html>
